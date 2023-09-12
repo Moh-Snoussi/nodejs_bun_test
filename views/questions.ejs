@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= app_name %></title>
+  </head>
+  <body>
+    <h1>List of Questions:</h1>
+    <ul>
+      <% for (let i = 0; i < questions.length; i++) { %>
+      <li><%= questions[i].question_text %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
