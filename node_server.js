@@ -5,7 +5,7 @@ const ejs = require('ejs');
 
 const server = http.createServer(async (_, res) => {
   try {
-    const questions = await db.getQuestions();
+    const [questions] = await db.getQuestions();
 
     const template = fs.readFileSync('views/questions.ejs', 'utf8');
     const renderedHTML = ejs.render(template, { questions: questions, app_name: 'Node application' });
