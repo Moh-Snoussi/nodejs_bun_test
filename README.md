@@ -4,7 +4,51 @@ A simple nodejs and bun similar applications that runs on port 3000. they use my
 nodejs application is in node_server.js and bun application is in bun_server.js
 
 ## Requirements
-- mysql server
+
+### nginx
+#### install nginx
+```bash
+sudo apt install nginx -y
+```
+
+#### configure nginx
+```bash
+cd nginx
+sudo cp qa_polls.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/qa_polls.conf /etc/nginx/sites-enabled/
+```
+
+#### restart nginx
+```bash
+sudo systemctl restart nginx
+```
+
+### mysql server
+#### install mysql server
+```bash
+sudo apt install mysql-server -y
+```
+
+#### create database
+```bash
+sudo mysqladmin -u root -p create qa_polls
+```s
+
+#### create user
+```bash
+sudo mysql
+```
+```sql
+CREATE USER 'qa_polls'@'localhost' IDENTIFIED BY 'qa_polls';
+GRANT ALL PRIVILEGES ON qa_polls.* TO 'qa_polls'@'localhost';
+```
+
+#### import the database
+```bash
+cd mysql_dumps
+sudo mysql -u qa_polls -p qa_polls < qa_polls.sql
+```
+
 
 ## Installation
 
