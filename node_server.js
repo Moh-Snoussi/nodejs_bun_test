@@ -8,7 +8,10 @@ const server = http.createServer(async (_, res) => {
     const [questions] = await db.getQuestions();
 
     const template = fs.readFileSync('views/questions.ejs', 'utf8');
-    const renderedHTML = ejs.render(template, { questions: questions, app_name: 'Node application' });
+    const renderedHTML = ejs.render(template, {
+      questions: questions,
+      app_name: 'Node application'
+    });
 
     res.writeHead(200, {
       'Content-Type': 'text/html',
@@ -24,5 +27,5 @@ const server = http.createServer(async (_, res) => {
 
 const port = 3000;
 server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Nodejs Listening on localhost: ${port}`);
 });

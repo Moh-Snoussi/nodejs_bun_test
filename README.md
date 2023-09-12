@@ -16,6 +16,7 @@ sudo apt install nginx -y
 cd nginx
 sudo cp qa_polls.conf /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/qa_polls.conf /etc/nginx/sites-enabled/
+sudo rm /etc/nginx/sites-enabled/default
 ```
 
 #### restart nginx
@@ -31,7 +32,7 @@ sudo apt install mysql-server -y
 
 #### create database
 ```bash
-sudo mysqladmin -u root -p create qa_polls
+sudo mysqladmin create qa_polls
 ```s
 
 #### create user
@@ -68,6 +69,8 @@ node node_server.js
 
 ### bun
 ```bash
+# install unzip
+sudo apt install unzip -y
 # install bun
 curl -fsSL https://bun.sh/install | bash
 

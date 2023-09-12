@@ -8,7 +8,10 @@ const server = Bun.serve({
             const [questions] = await db.getQuestions();
 
             const template = await Bun.file('views/questions.ejs').text();
-            const renderedHTML = ejs.render(template, { questions: questions, app_name: 'Bun application' });
+            const renderedHTML = ejs.render(template, {
+                questions: questions,
+                app_name: 'Bun application'
+            });
 
             return new Response(renderedHTML, {
                 status: 200,
@@ -26,5 +29,5 @@ const server = Bun.serve({
 });
 
 
-console.log(`Listening on localhost:${server.port}`);
+console.log(`Bun Listening on localhost: ${server.port}`);
 
