@@ -46,7 +46,7 @@ GRANT ALL PRIVILEGES ON qa_polls.* TO 'qa_polls'@'localhost';
 #### import the database
 ```bash
 cd mysql_dumps
-sudo mysql -u qa_polls -p qa_polls < qa_polls.sql
+sudo mysql qa_polls < qa_polls.sql
 ```
 
 
